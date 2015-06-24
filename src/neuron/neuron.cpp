@@ -91,8 +91,10 @@ namespace mp {
 
   template <class B>
   void Neuron<B>::set_before_layer(shared_ptr<vector<B>> layer) {
+    resize(layer->size());
     _before_layer = layer;
-    resize(layer.size());
+    if(is_fundamental<B>::value) resize(layer.size(), 0.0);
+    else resize(layer.size(), nullptr);
     set_output_refresh();
   }
 

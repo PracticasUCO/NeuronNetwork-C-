@@ -1,5 +1,6 @@
 #ifndef ___NEURON__CPP___
 #define ___NEURON__CPP___
+
 #include <vector>
 #include <iostream>
 #include <memory>
@@ -40,6 +41,7 @@ namespace mp { // Stands for MultilayerPerceptron
        * \param n the neuron to be copied
        * **/
       Neuron(const Neuron<B> &n);
+      Neuron(const Neuron<void> &n) delete;
 
       /**
        * \brief It resizes the neuron to have the inputs_size length.
@@ -84,6 +86,7 @@ namespace mp { // Stands for MultilayerPerceptron
        * \param layer the layer that is before this neuron.
        * */
       void set_before_layer(shared_ptr<vector<B>> layer);
+      void set_before_layer(shared_ptr<vector<void>> layer) delete;
 
       /**
        * \brief It sets how much the neuron will try to fix its own errors.
@@ -178,6 +181,7 @@ namespace mp { // Stands for MultilayerPerceptron
        * \return the before layer of this neuron.
        * **/
       shared_ptr<vector<B>> before_layer() const;
+      shared_ptr<vector<void>> before_layer() const delete;
 
     protected:
       /**

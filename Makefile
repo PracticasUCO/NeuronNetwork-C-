@@ -56,6 +56,9 @@ $(OBJDIR):
 $(BINDIR):
 	mkdir $(BINDIR)
 
+sigmoid_neuron.o: sigmoid_neuron.cpp sigmoid_neuron.h
+	$(CXX) $(CXXFLAGS) -c sigmoid_neuron.cpp -o sigmoid_neuron.o
+
 clean:
 	rm -Rf $(OBJDIR)
 
